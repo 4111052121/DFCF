@@ -102,3 +102,7 @@ y_pred = (model.predict(validation_generator) > 0.5).astype(int)  # 預測結果
 cm = confusion_matrix(y_true, y_pred)  # 計算混淆矩陣
 print("Confusion Matrix:")
 print(cm)
+
+# 儲存模型
+model.save("deepfake_model.h5")  # 儲存為 H5 格式的檔案
+print("Model has been saved.")
