@@ -7,6 +7,8 @@ from tensorflow.keras.models import Model  # 引入Model類進行模型定義
 from tensorflow.keras.optimizers import Adam  # 引入Adam優化器
 from sklearn.metrics import confusion_matrix  # 引入混淆矩陣計算
 import numpy as np  # 引入numpy
+from sklearn.metrics import confusion_matrix, accuracy_score, precision_score, recall_score, f1_score # 模型評估用
+
 
 # ========== 資料準備 ==========
 # 定義資料集路徑
@@ -102,6 +104,18 @@ y_pred = (model.predict(validation_generator) > 0.5).astype(int)  # 預測結果
 cm = confusion_matrix(y_true, y_pred)  # 計算混淆矩陣
 print("Confusion Matrix:")
 print(cm)
+# 計算並顯示各種評估指標
+accuracy = accuracy_score(y_true, y_pred)
+print(f"Accuracy: {accuracy * 100:.2f}%")
+
+precision = precision_score(y_true, y_pred)
+print(f"Precision: {precision * 100:.2f}%")
+
+recall = recall_score(y_true, y_pred)
+print(f"Recall: {recall * 100:.2f}%")
+
+f1 = f1_score(y_true, y_pred)
+print(f"F1 Score: {f1 * 100:.2f}%")
 
 # 儲存模型
 model.save("deepfake_model.h5")  # 儲存為 H5 格式的檔案
