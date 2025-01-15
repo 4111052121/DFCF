@@ -11,8 +11,8 @@ from transformers import TFViTModel, ViTImageProcessor
 
 tf.config.run_functions_eagerly(True)
 # 設定與資料路徑
-train_dir = "/Users/0yuan_0124/train"
-test_dir = "/Users/0yuan_0124/test"
+train_dir = ""
+test_dir = ""
 categories = ["real", "fake"]
 
 # 使用 Hugging Face 提供的 ViT 圖像處理器進行輸入預處理
